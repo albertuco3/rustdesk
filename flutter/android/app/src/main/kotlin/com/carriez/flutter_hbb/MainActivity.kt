@@ -255,6 +255,7 @@ class MainActivity : FlutterActivity() {
         // which must not tear down a live session.
         if (isFinishing) {
             FFI.closeAllSessions()
+            OutgoingConnectionService.stop(this)
         }
         mainService?.let {
             unbindService(serviceConnection)
@@ -673,6 +674,14 @@ class MainActivity : FlutterActivity() {
                 }
                 "enter_pip" -> {
                     result.success(remotePip.enterFromUser())
+                }
+                "start_outgoing_foreground" -> {
+                    OutgoingConnectionService.start(this)
+                    result.success(true)
+                }
+                "stop_outgoing_foreground" -> {
+                    OutgoingConnectionService.stop(this)
+                    result.success(true)
                 }
                 else -> {
                     result.error("-1", "No such method", null)

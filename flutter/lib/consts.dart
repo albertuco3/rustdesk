@@ -474,6 +474,8 @@ class AndroidChannel {
   static final kPipSupported = "pip_supported";
   static final kSetPipEligible = "set_pip_eligible";
   static final kEnterPip = "enter_pip";
+  static final kStartOutgoingForeground = "start_outgoing_foreground";
+  static final kStopOutgoingForeground = "stop_outgoing_foreground";
 }
 
 /// flutter/packages/flutter/lib/src/services/keyboard_key.dart -> _keyLabels
