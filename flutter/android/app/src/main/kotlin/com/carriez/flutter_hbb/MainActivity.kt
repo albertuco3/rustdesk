@@ -676,12 +676,10 @@ class MainActivity : FlutterActivity() {
                     result.success(remotePip.enterFromUser())
                 }
                 "start_outgoing_foreground" -> {
-                    OutgoingConnectionService.start(this)
-                    result.success(true)
+                    result.success(OutgoingConnectionService.start(this))
                 }
                 "stop_outgoing_foreground" -> {
-                    OutgoingConnectionService.stop(this)
-                    result.success(true)
+                    result.success(OutgoingConnectionService.stop(this))
                 }
                 else -> {
                     result.error("-1", "No such method", null)
